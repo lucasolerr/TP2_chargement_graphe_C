@@ -1,4 +1,3 @@
-
 #include "Graphe.h"
 
 /* affichage des successeurs du sommet num*/
@@ -132,7 +131,7 @@ void graphe_afficher(Graphe* graphe)
 
 int main()
 {
-    Graphe * g=lire_graphe("graphe1_TP2.txt");
+    Graphe * g=lire_graphe("../binaries/graphe1_TP2.txt");
 
     ///appel de la methode pour afficher le graphe
 
