@@ -74,7 +74,7 @@ typage defilement(File F) {
 
 
 
-void InitialParcourLargeur(pSommet *graphe, int ordre, int sommetInitial) {
+void InitialParcourLargeur(pSommet *graphe, int ordre, int sommetInitial, char couleurConnexe) {
     /*Initialisation de la couleur des sommets*/
     /*N=Noir, deja vu.  B=Blanc a voir*/
     printf("\n***PARCOURS EN LARGEUR***\n");
@@ -123,6 +123,8 @@ void InitialParcourLargeur(pSommet *graphe, int ordre, int sommetInitial) {
 
             //le sommet i est de couleur noire
             graphe[i]->couleur = 'N';
+
+            graphe[i]->connexite = sommetInitial;
         }
     }
     printf("\n");

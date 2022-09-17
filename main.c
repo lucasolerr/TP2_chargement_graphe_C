@@ -1,6 +1,7 @@
 #include "Graphe/Graphe.h"
 #include "BFS/bfs.h"
 #include "DFS/dfs.h"
+#include "Conexite/connexite.h"
 
 
 
@@ -22,7 +23,7 @@ int main() {
 
     switch (choixParcours) {
         case 1:{
-            InitialParcourLargeur(g->pSommet, g->ordre, sommetInitial);
+            InitialParcourLargeur(g->pSommet, g->ordre, sommetInitial, 'A');
             fonctionPredecesseurs(g->pSommet, g->ordre, sommetInitial);
             break;
         }
@@ -38,6 +39,10 @@ int main() {
         }
 
     }
+
+    attributionCouleursConnexes(g->pSommet, g->ordre);
+
+    afficherComposantesConnexes(g->pSommet, g->ordre);
 
     return 0;
 }

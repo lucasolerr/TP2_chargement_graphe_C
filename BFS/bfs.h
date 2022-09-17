@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 
-void InitialParcourLargeur(pSommet* graphe, int ordre, int sommetInitial);
+void InitialParcourLargeur(pSommet* graphe, int ordre, int sommetInitial, char couleurConnexe);
 
 typedef int typage;
 

@@ -25,6 +25,8 @@ struct Sommet
     //On a choisi d'ajouter un paramètre dans la structure Sommet
     //pour connaître le prédécesseur d'un sommet directement dans sa structure propre
     int predecesseur;
+    //Ajout d'un paramètre pour savoir si la connexité a été effectuée sur ce sommet
+    char connexite;
 
 };
 
