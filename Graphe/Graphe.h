@@ -9,7 +9,7 @@
 struct Arc
 {
     int sommet; // numero de sommet d'un arc adjacent au sommet initial
-    int predecesseur;
+    int valeur;
     struct Arc* arc_suivant;
 };
 
@@ -22,6 +22,8 @@ struct Sommet
     struct Arc* arc;
     int valeur;
     char couleur;
+    //On a choisi d'ajouter un paramètre dans la structure Sommet
+    //pour connaître le prédécesseur d'un sommet directement dans sa structure propre
     int predecesseur;
 
 };

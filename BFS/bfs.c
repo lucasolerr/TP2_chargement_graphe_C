@@ -1,10 +1,5 @@
 #include "bfs.h"
 
-// fifo.c
-
-#include <stdio.h>
-
-
 File fileVide() {
     File F;
     //On alloue dynamiquement la liste
@@ -48,24 +43,6 @@ void enfiler(File F, typage element) {
     ++(F->longueur);
 }
 
-typage tete(File F) {
-    if (F == NULL || longueur(F) == 0) printf(" File existe pas - tete");
-    return (F->tete->element);
-}
-
-void defiler(File F) {
-    Cellule cellule;
-
-    if (F == NULL || longueur(F) == 0)printf("File existe pas - defiler");
-    cellule = F->tete;
-    if (longueur(F) == 1)
-        F->tete = F->queue = NULL;
-    else
-        F->tete = F->tete->suivant;
-    --(F->longueur);
-    free(cellule);
-}
-
 typage defilement(File F) {
     Cellule cellule;
     typage element;
@@ -94,17 +71,7 @@ typage defilement(File F) {
     return (element);
 }
 
-void ecrireFile(File F) {
-    Cellule cellule;
 
-    if (F == NULL) printf("erreur ecrireFile");
-    cellule = F->tete;
-    while (cellule != NULL) {
-        printf("%d ", cellule->element);
-        cellule = cellule->suivant;
-    }
-    printf("\n");
-}
 
 
 void InitialParcourLargeur(pSommet *graphe, int ordre, int sommetInitial) {
@@ -161,21 +128,27 @@ void InitialParcourLargeur(pSommet *graphe, int ordre, int sommetInitial) {
     printf("\n");
 }
 
-
-void fonctionId(pSommet* pSommet, int ordre, int sommetInitial){
+void fonctionPredecesseurs(pSommet* pSommet, int ordre, int sommetInitial){
+    //boucle for pour parcourir tous les sommets
     for (int i = 0; i < ordre; ++i) {
+        //Si le sommet en question n'a pas déjà de prédécesseur alors
         if (pSommet[i]->predecesseur != -1) {
+            //on met un temporaire à la valeur de ce sommet
             int tempPred = i;
-            printf("%d", i);
 
+            //on l'affiche
+            printf("\n%d", i);
+
+            //Fonction récursive qui permet de parcourir les prédécesseurs de ce sommet
+            //Tant que le prédécesseur est != du sommet initial
             while (tempPred != sommetInitial) {
+                //le temporaire prend la valeur du prédécesseur du n-1 sommet
                 tempPred = pSommet[tempPred]->predecesseur;
+                //on affiche ce prédécesseur
                 printf(" <-- %d", tempPred);
             }
-
+                        //on saute un ligne entre chaque branche de l'arborescence
             printf("\n");
         }
-
-
     }
 }
