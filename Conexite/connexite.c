@@ -1,35 +1,20 @@
 #include "connexite.h"
 
+//reste à commenter cette partie de code
+
 void attributionCouleursConnexes(pSommet* graphe, int ordre){
-
-    for (int i = 0; i < ordre; i++) {
-        graphe[i]->connexite = 'A';
-    }
-
-    for (int i = 0; i < ordre; i++) {
-        if (graphe[i]->connexite == 'A') {
-            InitialParcourLargeur(graphe, ordre, i, (char) i);
-        }
-    }
-
-
-
-
-}
-
-void afficherComposantesConnexes(pSommet* graphe, int ordre){
+    char temp[5] = {0};
     int compteur = 0;
-    char temp[5] = {-1, -1, -1, -1, -1};
 
     for (int i = 0; i < ordre; i++) {
-        if(graphe[i]->connexite != 'A'){
-            for (int j = 0; j < compteur + 1; j++) {
-                if (graphe[i]->connexite != temp[j]) {
-                    temp[compteur] = graphe[i]->connexite;
-                    compteur++;
-                } else {
-                }
-            }
+        graphe[i]->connexite = -1;
+    }
+
+    for (int i = 0; i < ordre; i++) {
+        if (graphe[i]->connexite == -1) {
+            InitialParcourLargeur(graphe, ordre, i, 0);
+            temp[compteur] = (char) i;
+            compteur++;
         }
     }
 

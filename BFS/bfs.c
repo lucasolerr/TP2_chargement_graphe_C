@@ -124,7 +124,7 @@ void InitialParcourLargeur(pSommet *graphe, int ordre, int sommetInitial, char c
             //le sommet i est de couleur noire
             graphe[i]->couleur = 'N';
 
-            graphe[i]->connexite = sommetInitial;
+            graphe[i]->connexite = (char) sommetInitial;
         }
     }
     printf("\n");
