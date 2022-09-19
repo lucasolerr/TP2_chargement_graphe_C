@@ -74,7 +74,7 @@ typage defilement(File F) {
 
 
 
-void InitialParcourLargeur(pSommet *graphe, int ordre, int sommetInitial, char couleurConnexe) {
+void InitialParcourLargeur(pSommet *graphe, int ordre, int sommetInitial, int isAlgoConnexe) {
     /*Initialisation de la couleur des sommets*/
     /*N=Noir, deja vu.  B=Blanc a voir*/
     printf("\n***PARCOURS EN LARGEUR***\n");
@@ -124,7 +124,12 @@ void InitialParcourLargeur(pSommet *graphe, int ordre, int sommetInitial, char c
             //le sommet i est de couleur noire
             graphe[i]->couleur = 'N';
 
-            graphe[i]->connexite = (char) sommetInitial;
+            //Si le parcours BFS est appelé par la fonction de recherche de composante connexe
+            //Alors on actualise la couleur connexe du sommet i
+            //Cette couleur sera la même que le sommet initial par soucis pratique
+            if (isAlgoConnexe) {
+                graphe[i]->connexite = (char) sommetInitial;
+            }
         }
     }
     printf("\n");

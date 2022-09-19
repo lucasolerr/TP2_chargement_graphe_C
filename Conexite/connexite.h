@@ -4,8 +4,9 @@
 #include "../Graphe/Graphe.h"
 #include "../BFS/bfs.h"
 
-void attributionCouleursConnexes(pSommet* graphe, int ordre);
+//Macro qui permet de définir un nombre maximal de composante connexes d'un graphe attribuables
+#define CONST_TAILLE_MAX_COMPO_CONNEXES 10
 
-void afficherComposantesConnexes(pSommet* graphe, int ordre);
+void attributionCouleursConnexes(pSommet* graphe, int ordre);
 
 #endif

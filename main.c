@@ -3,6 +3,16 @@
 #include "DFS/dfs.h"
 #include "Conexite/connexite.h"
 
+/*
+ * Nous avons utilisé pour la résolution de ce TP
+ * les algorithmes BFS et DFS implémentés en C par Jerome Morissard
+ * nous les avons modifiés et améliorés pour répondre aux exigences
+ * de ce TP.
+ *
+ * L'algorithme de recherche de composantes connexes a été entièrement imaginé
+ * par nos soins.
+ */
+
 
 
 int main() {
@@ -21,14 +31,17 @@ int main() {
     //afficher le graphe
     graphe_afficher(g);
 
+    //Switch permettant de faire un choix de parcours (BFS/DFS)
     switch (choixParcours) {
         case 1:{
-            InitialParcourLargeur(g->pSommet, g->ordre, sommetInitial, 'A');
+            //Lancement du parcours BFS
+            InitialParcourLargeur(g->pSommet, g->ordre, sommetInitial, 0);
             fonctionPredecesseurs(g->pSommet, g->ordre, sommetInitial);
             break;
         }
 
         case 2:{
+            //Lancement du parcours DFS
             InitialParcourLongueurPileLIFO(g->pSommet, g->ordre, sommetInitial);
             fonctionPredecesseurs(g->pSommet, g->ordre, sommetInitial);
             break;
@@ -40,9 +53,14 @@ int main() {
 
     }
 
-    attributionCouleursConnexes(g->pSommet, g->ordre);
+    printf("\nVoulez vous afficher les composantes connexes de ce graphe ? (1: Oui)\n");
+    scanf(" %d", &choixParcours);
 
-    afficherComposantesConnexes(g->pSommet, g->ordre);
+    if(choixParcours){
+        attributionCouleursConnexes(g->pSommet, g->ordre);
+    } else {
+        printf("Fin du programme.\n");
+    }
 
     return 0;
 }
