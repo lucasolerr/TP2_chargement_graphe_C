@@ -1,6 +1,11 @@
 #include "dfs.h"
 #include "../BFS/bfs.h"
 
+/*
+ * Dans le sujet, il y avait une ambiguïté sur le choix d'implémentation de l'algorithme DFS
+ * (récursif ou avec une pile LIFO) nous avons choisi de l'implémenté avec une pile LIFO
+*/
+
 typage defilementLIFO(File F) {
     Cellule cellule;
     Cellule temp;

@@ -8,6 +8,8 @@
  * les algorithmes BFS et DFS implémentés en C par Jerome Morissard
  * nous les avons modifiés et améliorés pour répondre aux exigences
  * de ce TP.
+ * Dans le sujet, il y avait une ambiguïté sur le choix d'implémentation de l'algorithme DFS
+ * (récursif ou avec une pile LIFO) nous avons choisi de l'implémenté avec une pile LIFO
  *
  * L'algorithme de recherche de composantes connexes a été entièrement imaginé
  * par nos soins.
